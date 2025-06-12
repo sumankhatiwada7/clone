@@ -17,17 +17,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com'
         ]);
 
-        // Seed categories
-        $categories = [
-            'Technology', 'Health', 'Lifestyle', 'Travel', 'Food',
+        //Seed categories
+       $categories = [
+           'Technology', 'Health', 'Lifestyle', 'Travel', 'Food',
             'Education', 'Finance', 'Entertainment', 'Sports', 'Fashion'
         ];
 
-        foreach ($categories as $cat) {
-            Category::firstOrCreate(['name' => $cat]);
+       foreach ($categories as $cat) {
+           Category::firstOrCreate(['name' => $cat]);
         }
 
-        // Seed posts
-        Post::factory(50)->create();
+       // Seed posts
+       Post::factory(50)->create();
     }
 }

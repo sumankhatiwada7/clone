@@ -13,9 +13,9 @@ class PostController extends Controller
     public function index()
 
     {
-        $posts=post::all();
-        $categories=category::all();
-        return view('dashboard',['categories'=>$categories],['posts'=>$posts]);
+        $posts=post::orderBy('crated_at','DESC')->simplepaginate(5);;
+    
+        return view('dashboard',['posts'=>$posts]);
     }
 
     /**

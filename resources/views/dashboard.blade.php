@@ -6,10 +6,14 @@
             <div class="bg-white shadow-sm sm:rounded-lg p-4">
                 <ul class="flex flex-wrap justify-center gap-3 text-sm font-medium text-gray-600">
                     <li>
-                        <a href="#" class="px-4 py-2 text-white bg-sky-600 rounded-lg">All</a>
+                        <a href="#" class="px-4 py-2 text-black bg-yellow-600 rounded-lg">All</a>
                     </li>
                     @foreach($categories as $cat)
-                    <x-category-item :cat="$cat" />
+                     <li>
+                            <a href="#" class="px-4 py-2 bg-gray-100 text-gray-800 rounded-lg hover:bg-sky-100 hover:text-sky-800">
+                                {{ $cat->name }}
+                            </a>
+                        </li>
                     @endforeach
                 </ul>
             </div>

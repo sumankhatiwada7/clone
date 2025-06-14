@@ -14,8 +14,9 @@ class PostController extends Controller
 
     {
         $posts=post::orderBy('crated_at','DESC')->simplepaginate(5);;
+        $categories = category::all();
     
-        return view('dashboard',['posts'=>$posts]);
+        return view('dashboard',['posts'=>$posts],['categories'=>$categories]);
     }
 
     /**

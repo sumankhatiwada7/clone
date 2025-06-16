@@ -11,12 +11,15 @@
                 </div>
 
                 <!-- Navigation Links -->
-                <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
-                    </x-nav-link>
-                </div>
+               
             </div>
+        <div class="flex">
+           <div class=" flex items-center">
+            <a href="{{ route('post.createpost') }}">
+           <x-primary-button>
+            create post
+            </x-primary-button>
+           </div>
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
@@ -63,6 +66,7 @@
             </div>
         </div>
     </div>
+</div>
 
     <!-- Responsive Navigation Menu -->
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">

@@ -6,7 +6,9 @@
                         </p>
                         <a href="#"
                            class="inline-flex items-center text-sm text-blue-700 hover:underline font-medium">
-                            Read more
+                            <x-primary-button>
+                                Readmore
+                                </x-primary-button>
                             <svg class="ml-2 w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none"
                                  viewBox="0 0 14 10">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"

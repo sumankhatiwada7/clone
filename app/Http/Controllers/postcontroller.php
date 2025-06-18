@@ -32,16 +32,30 @@ class PostController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
-    {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'title' => 'required',
-            'content' => 'required',
-            'category_id' => 'required|exists:categories,id',
-        ]);
+{
+    $data = $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'title' => 'required',
+        'content' => 'required',
+        'category_id' => 'required|exists:categories,id',
+        'published_at' => 'nullable|date',
+    ]);
 
-        
-    }
+    $image = $data['image'];
+    unset($data['image']);
+
+    $imagePath = $image->store('posts', 'public');
+    $data['image'] = $imagePath;
+    $data['slug'] = str_slug($data['title']);
+    $data['user_id'] = auth()->id();
+
+    Post::create($data);
+    dd('Redirecting...');
+
+
+    return redirect()->route('dashboard')->with('success', 'Post created successfully.');
+}
+
 
     /**
      * Display the specified resource.

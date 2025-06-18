@@ -15,8 +15,9 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::get('/', [PostController::class, 'index'])
     ->name('dashboard');
     
-Route::get('/post/create', [PostController::class, 'create'])
-->name('post.createpost');
+Route::get('/post/createpost', [PostController::class, 'create'])->name('post.createpost');
+Route::post('/post/store', [PostController::class, 'store'])->name('post.store');
+
 });
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

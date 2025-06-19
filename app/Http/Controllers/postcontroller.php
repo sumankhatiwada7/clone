@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\category;
 use App\Models\post;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class PostController extends Controller
 {
@@ -13,7 +14,7 @@ class PostController extends Controller
     public function index()
 
     {
-        $posts=post::orderBy('crated_at','DESC')->simplepaginate(5);;
+        $posts=post::orderBy('created_at','desc')->simplepaginate(5);;
         $categories = category::all();
     
         return view('post.index',['posts'=>$posts],['categories'=>$categories]);
@@ -46,14 +47,15 @@ class PostController extends Controller
 
     $imagePath = $image->store('posts', 'public');
     $data['image'] = $imagePath;
-    $data['slug'] = str_slug($data['title']);
+    $data['slug'] = Str::slug($data['title']);
+
     $data['user_id'] = auth()->id();
 
     Post::create($data);
-    dd('Redirecting...');
+   
 
 
-    return redirect()->route('dashboard')->with('success', 'Post created successfully.');
+return redirect()->route('dashboard', ['page' => 1])->with('success', 'Post created successfully.');
 }
 
 

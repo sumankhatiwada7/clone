@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Http\Requests\createpost;
 use App\Models\category;
 use App\Models\post;
 use Illuminate\Http\Request;
@@ -32,15 +33,9 @@ class PostController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(createpost $request)
 {
-    $data = $request->validate([
-        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-        'title' => 'required',
-        'content' => 'required',
-        'category_id' => 'required|exists:categories,id',
-        'published_at' => 'nullable|date',
-    ]);
+    $data = $request->validated();
 
     $image = $data['image'];
     unset($data['image']);

@@ -19,16 +19,15 @@ class createpost extends FormRequest
      *
      * @return array<string, \Illuminate\Contracts\Validation\ValidationRule|array<mixed>|string>
      */
-    public function rules(): array
-    {
-        return [
-            [
+   public function rules(): array
+{
+    return [
         'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         'title' => 'required',
         'content' => 'required',
         'category_id' => 'required|exists:categories,id',
         'published_at' => 'nullable|date',
-    ]
-        ];
-    }
+    ];
+}
+
 }

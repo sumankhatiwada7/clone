@@ -17,6 +17,10 @@ class post extends Model
           'slug',
           'published_at',
      ];
+     public function user()
+     {
+          return $this->belongsTo(User::class);
+     }
         
 
 

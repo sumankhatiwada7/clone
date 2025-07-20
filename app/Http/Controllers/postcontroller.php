@@ -57,9 +57,9 @@ return redirect()->route('dashboard', ['page' => 1])->with('success', 'Post crea
     /**
      * Display the specified resource.
      */
-    public function show(post $post)
+    public function show( string $username, post $post)
     {
-        //
+        return view('post.show', ['post' => $post]);
     }
 
     /**

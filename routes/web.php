@@ -3,7 +3,9 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\publicprofilecontoller;
 use Illuminate\Support\Facades\Route;
+Route::get('/@{user:username}', [publicprofilecontoller::class, 'show'])->name('publicprofile.show');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/', [PostController::class, 'index'])->name('dashboard');

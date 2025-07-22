@@ -10,6 +10,8 @@
 
             <!-- Avatar Below Title on Left Side -->
             <div class="flex items-center gap-4">
+                
+
                 @if ($post->user->image)
                     <img 
                         class="w-16 h-16 p-1 rounded-full ring-2 ring-gray-300 dark:ring-gray-500" 
@@ -27,9 +29,11 @@
                 <div>
                     <!-- Username on top -->
                     <div class ="flex gap-2">
+                   <a href="{{ route('publicprofile.show', $post->user) }}" class="text-gray-800 hover:text-blue-600">
                     <p class="font-semibold text-gray-700">
                         {{ $post->user->name }}
                     </p>
+                    </a>
                     &middot;
                     <a href="#" class="text-emerald-500">Follow</a>
                 </div>

@@ -13,9 +13,9 @@ class DatabaseSeeder extends Seeder
     {
         // Create admin user
         User::factory()->create([
-            'name' => 'Admin',
-            'username' => 'admin',
-            'email' => 'admin@gmail.com'
+            'name' => 'Admin','suii',
+            'username' => 'admin','suiikumar',
+            'email' => 'admin@gmail.com','suiikumar@gmail.com'
         ]);
 
         //Seed categories
